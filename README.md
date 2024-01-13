@@ -7,6 +7,7 @@
 ## Get Started
 
 1. **Install** `npm install`
+2. **Configure mysql connection** [config file](https://github.com/ol-kyrychenko/ExpressJsLab4Template/blob/main/config/db.config.js)
 2. **Run the app** `npm run start`
 
 ### Linting

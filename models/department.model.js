@@ -10,9 +10,7 @@ const Department = function (department) {
 
 Department.getAll = async () => {
     const query = 'SELECT * FROM department';
-
     const rows = await db.query(query);
-    console.log('departments: ', rows);
     return rows;
 };
 
