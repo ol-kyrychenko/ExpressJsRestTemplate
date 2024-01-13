@@ -1,3 +1,5 @@
+const Department = require('../models/department.model');
+
 const users = [
     {
         id: 1,
@@ -20,7 +22,9 @@ const users = [
 ];
 
 const getUsers = async (req, res) => {
-    res.status(200).json(users);
+    const departments = await Department.getAll();
+    console.log(departments);
+    res.status(200).json(departments);
 };
 
 const addUser = async (req, res) => {
