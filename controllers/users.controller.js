@@ -1,5 +1,25 @@
 const Department = require('../models/department.model');
 
+/**
+ * @swagger
+ * definitions:
+ *   User:
+ *     type: object
+ *     required:
+ *        - id
+ *        - firstName
+ *        - lastName
+ *        - email
+ *     properties:
+ *       id:
+ *         type: number
+ *       firstName:
+ *         type: string
+ *       lastName:
+ *         type: string
+ *       email:
+ *         type: string
+ */
 const users = [
     {
         id: 1,
@@ -21,6 +41,23 @@ const users = [
     },
 ];
 
+/**
+ * @swagger
+ * /users:
+ *   get:
+ *     description: Get all users
+ *     tags:
+ *       - Employee
+ *     produces:
+ *       - application/json
+ *     responses:
+ *       200:
+ *         description: All users
+ *         schema:
+ *           $ref: '#/definitions/User'
+ *       500:
+ *         description: Internal server error
+ */
 const getUsers = async (req, res) => {
     // Demo implementation
     const departments = await Department.getAll();
