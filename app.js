@@ -1,5 +1,7 @@
 const createError = require('http-errors');
 const express = require('express');
+const swaggerUi = require('swagger-ui-express');
+const swaggerJSDoc = require('swagger-jsdoc');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
@@ -18,6 +20,32 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+const swaggerOptions = {
+    swaggerDefinition: {
+        info: {
+            version: '1.0.0',
+            title: 'Express Application',
+            description: 'Express Application API Documentation'
+        },
+        schemes: ['http'],
+        consumes: ['application/json'],
+        produces: ['application/json']
+    },
+    apis: [
+        './models/*.js',
+        './controllers/*.js'
+    ]
+};
+
+const swaggerSpec = swaggerJSDoc(swaggerOptions);
+
+app.get('/api-docs.json', (req, res) => {
+    res.setHeader('Content-Type', 'application/json');
+    res.send(swaggerSpec);
+});
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

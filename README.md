@@ -2,13 +2,17 @@
 
 ## Initial Machine Setup
 
-1. **Install NodeJS 18**
+1. **Install NodeJS 22**
 
 ## Get Started
 
 1. **Install** `npm install`
 2. **Configure mysql connection** [config file](https://github.com/ol-kyrychenko/ExpressJsLab4Template/blob/main/config/db.config.js)
 2. **Run the app** `npm run start`
+
+## Documentation
+Swagger docs can be found at:
+- http://localhost:3000/api-docs/
 
 ### Linting
 
