@@ -60,9 +60,9 @@ const users = [
  */
 const getUsers = async (req, res) => {
     // Demo implementation
-    const departments = await Department.getAll();
-    console.log(departments);
-    res.status(200).json(departments);
+    // const departments = await Department.getAll();
+    // console.log(departments);
+    res.status(200).json(users);
 };
 
 const addUser = async (req, res) => {
